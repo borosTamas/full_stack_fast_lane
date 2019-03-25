@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-<script src="../js/game.js"></script>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block content %}
+    <form action="/game" method="GET">
+        <h1>This is a driving game</h1>
+        <button class="btn-outline-dark" type="submit">Let's go!</button>
+    </form>
+{% endblock %}
