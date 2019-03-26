@@ -1,9 +1,5 @@
 {% extends 'layout.html' %}
 
-{% block head %}
-    <script src="{{ url_for('static', filename='js/game.js') }}" defer></script>
-{% endblock %}
-
 {% block content %}
     <nav class="navbar fixed-top navbar-light">
         <button id="retry-button" class="btn btn-success">Try again?</button>
