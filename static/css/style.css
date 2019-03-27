@@ -12,7 +12,7 @@ body {
     width: 50%;
     left: 35%;
     margin-top: 20px;;
-    background-color: #292929;
+    background-color: rgb(89, 89, 89);
     overflow: hidden;
 }
 
@@ -21,7 +21,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 48%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 254, 41);
 }
 
 #line_1{
@@ -39,7 +39,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 19%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 255, 255);
 }
 
 #line_4{
@@ -57,7 +57,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 78%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 255, 255);
 }
 
 #line_7{
@@ -72,10 +72,8 @@ body {
 
 .car{
     position: absolute;
-    height: 60px;
-    width: 40px;
-    border-radius: 5px;
-    box-shadow: 0px 1px 8px 0px black;
+    height: 100px;
+    width: 60px;
 }
 
 .power-up{
@@ -87,32 +85,42 @@ body {
 
 }
 
+
 #car{
     bottom: 8%;
     left: 60%;
-    background-color: #ffdf5a;
+    background-size: contain;
 }
 
 #car_1{
     top: -100px;
     left: 60%;
-    background-color: #26c5ff;
+    background-size: contain;
 }
+
 #car_2{
     top: -200px;
     left: 40%;
-    background-color: #26c5ff;
+    background-size: contain;
 }
+
 #car_3{
     top: -350px;
     left: 50%;
-    background-color: #26c5ff;
+    background-size: contain;
 }
 
 #extra_score{
     top: -250px;
     left: 30%;
     background-color: aqua;
+}
+
+
+#car_4{
+    top: -400px;
+    left: 20%;
+    background-size: contain;
 }
 
 #restart_div {
@@ -137,6 +145,7 @@ body {
 }
 .small_text{
     font-size: 15px;
+    font-family: Montserrat;
 }
 #score_div{
     position: absolute;
@@ -151,12 +160,3 @@ body {
 #help{
 	text-align: center;
 }
-#donate{
-    position: absolute;
-    right: 10px;
-    top: 25px;
-    background: rgba(255,255,255,0.8);
-    padding: 12px;
-}
-
-
