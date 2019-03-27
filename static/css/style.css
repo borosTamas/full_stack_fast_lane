@@ -80,7 +80,7 @@ body {
 #car{
     bottom: 8%;
     left: 60%;
-    background-color: #ffdf5a;
+    background-size: contain;
 }
 
 #car_1{
@@ -88,6 +88,7 @@ body {
     left: 60%;
     background-color: #26c5ff;
 }
+
 #car_2{
     top: -200px;
     left: 40%;
@@ -124,6 +125,16 @@ body {
 #score_div{
     position: absolute;
     margin-top: 20%;
+    margin-left: 10%;
+    font-size: 35px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+    box-shadow: 4px 4px 0px 1px #808080;
+}
+#timer_div {
+    position: absolute;
+    margin-top: 25%;
     margin-left: 10%;
     font-size: 35px;
     background-color: white;
