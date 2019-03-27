@@ -11,6 +11,12 @@ $(function() {
     var line_1 = $('#line_1');
     var line_2 = $('#line_2');
     var line_3 = $('#line_3');
+    var line_4 = $('#line_4');
+    var line_5 = $('#line_5');
+    var line_6 = $('#line_6');
+    var line_7 = $('#line_7');
+    var line_8 = $('#line_8');
+    var line_9 = $('#line_9');
     var restart_div = $('#restart_div');
     var restart_btn = $('#restart');
     var score = $('#score');
@@ -126,6 +132,13 @@ $(function() {
         line_down(line_1);
         line_down(line_2);
         line_down(line_3);
+        line_down(line_4);
+        line_down(line_5);
+        line_down(line_6);
+        line_down(line_7);
+        line_down(line_8);
+        line_down(line_9);
+
 
         anim_id = requestAnimationFrame(repeat);
     }

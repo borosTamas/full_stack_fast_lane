@@ -23,6 +23,7 @@ body {
     margin-left: 48%;
     background-color: rgba(255,255,255,0.5);
 }
+
 #line_1{
     top: -150px;
 }
@@ -32,6 +33,43 @@ body {
 #line_3{
     top: 450px;
 }
+
+.line-left{
+    position: absolute;
+    height: 150px;
+    width: 4%;
+    margin-left: 19%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#line_4{
+    top: -150px;
+}
+#line_5{
+    top: 150px;
+}
+#line_6{
+    top: 450px;
+}
+
+.line-right{
+    position: absolute;
+    height: 150px;
+    width: 4%;
+    margin-left: 78%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#line_7{
+    top: -150px;
+}
+#line_8{
+    top: 150px;
+}
+#line_9{
+    top: 450px;
+}
+
 .car{
     position: absolute;
     height: 60px;
