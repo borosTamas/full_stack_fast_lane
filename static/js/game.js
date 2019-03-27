@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 
     var anim_id;
 
@@ -20,6 +20,7 @@ $(function() {
     var restart_div = $('#restart_div');
     var restart_btn = $('#restart');
     var score = $('#score');
+    var extra_score = $('#extra_score');
 
     //saving some initial setup
     var container_left = parseInt(container.css('left'));
@@ -44,7 +45,7 @@ $(function() {
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
 
     /* Move the cars */
-    $(document).on('keydown', function(e) {
+    $(document).on('keydown', function (e) {
         if (game_over === false) {
             var key = e.keyCode;
             if (key === 37 && move_left === false) {
@@ -59,7 +60,7 @@ $(function() {
         }
     });
 
-    $(document).on('keyup', function(e) {
+    $(document).on('keyup', function (e) {
         if (game_over === false) {
             var key = e.keyCode;
             if (key === 37) {
@@ -114,6 +115,11 @@ $(function() {
             stop_the_game();
             return;
         }
+        if (collision(car, extra_score)) {
+            score.text(parseInt(score.text()) + 5);
+            powerup_current_top = -200;
+           extra_score.css('top', powerup_current_top + speed);
+        }
 
         score_counter++;
 
@@ -128,6 +134,7 @@ $(function() {
         car_down(car_1);
         car_down(car_2);
         car_down(car_3);
+        powerup_down(extra_score);
 
         line_down(line_1);
         line_down(line_2);
@@ -153,50 +160,60 @@ $(function() {
         car.css('top', car_current_top + speed);
     }
 
-    function line_down(line) {
-        var line_current_top = parseInt(line.css('top'));
-        if (line_current_top > container_height) {
-            line_current_top = -300;
+    function powerup_down(powerup) {
+        var powerup_current_top = parseInt(powerup.css('top'));
+        if (powerup_current_top > container_height) {
+            powerup_current_top = -200;
+            var powerup_left = parseInt(Math.random() * (container_width - car_width));
+            powerup.css('left', powerup_left);
         }
-        line.css('top', line_current_top + line_speed);
+        powerup.css('top', powerup_current_top + speed);
     }
 
-    restart_btn.click(function() {
-        location.reload();
-    });
-
-    function stop_the_game() {
-        game_over = true;
-        cancelAnimationFrame(anim_id);
-        cancelAnimationFrame(move_right);
-        cancelAnimationFrame(move_left);
-        cancelAnimationFrame(move_up);
-        cancelAnimationFrame(move_down);
-        restart_div.slideDown();
-        restart_btn.focus();
+function line_down(line) {
+    var line_current_top = parseInt(line.css('top'));
+    if (line_current_top > container_height) {
+        line_current_top = -300;
     }
+    line.css('top', line_current_top + line_speed);
+}
 
-    /* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
-
-
-    function collision($div1, $div2) {
-        var x1 = $div1.offset().left;
-        var y1 = $div1.offset().top;
-        var h1 = $div1.outerHeight(true);
-        var w1 = $div1.outerWidth(true);
-        var b1 = y1 + h1;
-        var r1 = x1 + w1;
-        var x2 = $div2.offset().left;
-        var y2 = $div2.offset().top;
-        var h2 = $div2.outerHeight(true);
-        var w2 = $div2.outerWidth(true);
-        var b2 = y2 + h2;
-        var r2 = x2 + w2;
-
-        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
-        return true;
-    }
-
-
-
+restart_btn.click(function () {
+    location.reload();
 });
+
+function stop_the_game() {
+    game_over = true;
+    cancelAnimationFrame(anim_id);
+    cancelAnimationFrame(move_right);
+    cancelAnimationFrame(move_left);
+    cancelAnimationFrame(move_up);
+    cancelAnimationFrame(move_down);
+    restart_div.slideDown();
+    restart_btn.focus();
+}
+
+/* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
+
+
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
+
+
+})
+;
