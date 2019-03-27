@@ -1,53 +1,54 @@
 $(function() {
 
-    var anim_id;
+    let anim_id;
 
     //saving dom objects to variables
-    var container = $('#container');
-    var car = $('#car');
-    var car_1 = $('#car_1');
-    var car_2 = $('#car_2');
-    var car_3 = $('#car_3');
-    var line_1 = $('#line_1');
-    var line_2 = $('#line_2');
-    var line_3 = $('#line_3');
-    var line_4 = $('#line_4');
-    var line_5 = $('#line_5');
-    var line_6 = $('#line_6');
-    var line_7 = $('#line_7');
-    var line_8 = $('#line_8');
-    var line_9 = $('#line_9');
-    var restart_div = $('#restart_div');
-    var restart_btn = $('#restart');
-    var score = $('#score');
-    var timer = $('#timer');
+    let container = $('#container');
+    let car = $('#car');
+    let car_1 = $('#car_1');
+    let car_2 = $('#car_2');
+    let car_3 = $('#car_3');
+    let car_4 = $('#car_4');
+    let line_1 = $('#line_1');
+    let line_2 = $('#line_2');
+    let line_3 = $('#line_3');
+    let line_4 = $('#line_4');
+    let line_5 = $('#line_5');
+    let line_6 = $('#line_6');
+    let line_7 = $('#line_7');
+    let line_8 = $('#line_8');
+    let line_9 = $('#line_9');
+    let restart_div = $('#restart_div');
+    let restart_btn = $('#restart');
+    let score = $('#score');
+    let timer = $('#timer');
 
     //saving some initial setup
-    var container_left = parseInt(container.css('left'));
-    var container_width = parseInt(container.width());
-    var container_height = parseInt(container.height());
-    var car_width = parseInt(car.width());
-    var car_height = parseInt(car.height());
+    let container_left = parseInt(container.css('left'));
+    let container_width = parseInt(container.width());
+    let container_height = parseInt(container.height());
+    let car_width = parseInt(car.width());
+    let car_height = parseInt(car.height());
 
     //some other declarations
-    var game_over = false;
+    let game_over = false;
 
-    var score_counter = 1;
+    let score_counter = 1;
 
-    var speed = 2;
-    var line_speed = 5;
+    let speed = 2;
+    let line_speed = 5;
 
-    var move_right = false;
-    var move_left = false;
-    var move_up = false;
-    var move_down = false;
+    let move_right = false;
+    let move_left = false;
+    let move_up = false;
+    let move_down = false;
 
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
 
     /* Move the cars */
     $(document).on('keydown', function(e) {
         if (game_over === false) {
-            var key = e.keyCode;
+            let key = e.keyCode;
             if (key === 37 && move_left === false) {
                 move_left = requestAnimationFrame(left);
             } else if (key === 39 && move_right === false) {
@@ -62,7 +63,7 @@ $(function() {
 
     $(document).on('keyup', function(e) {
         if (game_over === false) {
-            var key = e.keyCode;
+            let key = e.keyCode;
             if (key === 37) {
                 cancelAnimationFrame(move_left);
                 move_left = false;
@@ -129,6 +130,7 @@ $(function() {
         car_down(car_1);
         car_down(car_2);
         car_down(car_3);
+        car_down(car_4);
 
         line_down(line_1);
         line_down(line_2);
@@ -145,17 +147,17 @@ $(function() {
     }
 
     function car_down(car) {
-        var car_current_top = parseInt(car.css('top'));
+        let car_current_top = parseInt(car.css('top'));
         if (car_current_top > container_height) {
             car_current_top = -200;
-            var car_left = parseInt(Math.random() * (container_width - car_width));
+            let car_left = parseInt(Math.random() * (container_width - car_width));
             car.css('left', car_left);
         }
         car.css('top', car_current_top + speed);
     }
 
     function line_down(line) {
-        var line_current_top = parseInt(line.css('top'));
+        let line_current_top = parseInt(line.css('top'));
         if (line_current_top > container_height) {
             line_current_top = -300;
         }
@@ -181,27 +183,27 @@ $(function() {
 
 
     function collision($div1, $div2) {
-        var x1 = $div1.offset().left;
-        var y1 = $div1.offset().top;
-        var h1 = $div1.outerHeight(true);
-        var w1 = $div1.outerWidth(true);
-        var b1 = y1 + h1;
-        var r1 = x1 + w1;
-        var x2 = $div2.offset().left;
-        var y2 = $div2.offset().top;
-        var h2 = $div2.outerHeight(true);
-        var w2 = $div2.outerWidth(true);
-        var b2 = y2 + h2;
-        var r2 = x2 + w2;
+        let x1 = $div1.offset().left;
+        let y1 = $div1.offset().top;
+        let h1 = $div1.outerHeight(true);
+        let w1 = $div1.outerWidth(true);
+        let b1 = y1 + h1;
+        let r1 = x1 + w1;
+        let x2 = $div2.offset().left;
+        let y2 = $div2.offset().top;
+        let h2 = $div2.outerHeight(true);
+        let w2 = $div2.outerWidth(true);
+        let b2 = y2 + h2;
+        let r2 = x2 + w2;
 
         if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
         return true;
     }
 
 
-    var minutesLabel = document.getElementById("minutes");
-    var secondsLabel = document.getElementById("seconds");
-    var totalSeconds = 0;
+    let minutesLabel = document.getElementById("minutes");
+    let secondsLabel = document.getElementById("seconds");
+    let totalSeconds = 0;
     setInterval(setTime, 1000);
 
     function setTime() {
@@ -212,7 +214,7 @@ $(function() {
     }}
 
     function pad(val) {
-      var valString = val + "";
+      let valString = val + "";
       if (valString.length < 2) {
         return "0" + valString;
       } else {
