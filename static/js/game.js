@@ -3,25 +3,26 @@ $(function() {
     let anim_id;
 
     //saving dom objects to variables
-    var container = $('#container');
-    var car = $('#car');
-    var car_1 = $('#car_1');
-    var car_2 = $('#car_2');
-    var car_3 = $('#car_3');
-     let car_4 = $('#car_4');
-    var line_1 = $('#line_1');
-    var line_2 = $('#line_2');
-    var line_3 = $('#line_3');
-    var line_4 = $('#line_4');
-    var line_5 = $('#line_5');
-    var line_6 = $('#line_6');
-    var line_7 = $('#line_7');
-    var line_8 = $('#line_8');
-    var line_9 = $('#line_9');
-    var restart_div = $('#restart_div');
-    var restart_btn = $('#restart');
-    var score = $('#score');
-    var extra_score = $('#extra_score');
+    let container = $('#container');
+    let car = $('#car');
+    let car_1 = $('#car_1');
+    let car_2 = $('#car_2');
+    let car_3 = $('#car_3');
+    let car_4 = $('#car_4');
+    let line_1 = $('#line_1');
+    let line_2 = $('#line_2');
+    let line_3 = $('#line_3');
+    let line_4 = $('#line_4');
+    let line_5 = $('#line_5');
+    let line_6 = $('#line_6');
+    let line_7 = $('#line_7');
+    let line_8 = $('#line_8');
+    let line_9 = $('#line_9');
+    let restart_div = $('#restart_div');
+    let restart_btn = $('#restart');
+    let score = $('#score');
+    let timer = $('#timer');
+    let extra_score = $('#extra_score');
 
     //saving some initial setup
     let container_left = parseInt(container.css('left'));
@@ -224,5 +225,26 @@ function stop_the_game() {
 }
 
 
-})
-;
+
+    let minutesLabel = document.getElementById("minutes");
+    let secondsLabel = document.getElementById("seconds");
+    let totalSeconds = 0;
+    setInterval(setTime, 1000);
+
+    function setTime() {
+      if(game_over==false) {
+      ++totalSeconds;
+      secondsLabel.innerHTML = pad(totalSeconds % 60);
+      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    }}
+
+    function pad(val) {
+      let valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    }
+
+});
