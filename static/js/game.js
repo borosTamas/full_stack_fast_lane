@@ -8,6 +8,7 @@ $(function() {
     let car_1 = $('#car_1');
     let car_2 = $('#car_2');
     let car_3 = $('#car_3');
+    let car_4 = $('#car_4');
     let line_1 = $('#line_1');
     let line_2 = $('#line_2');
     let line_3 = $('#line_3');
@@ -128,6 +129,7 @@ $(function() {
         car_down(car_1);
         car_down(car_2);
         car_down(car_3);
+        car_down(car_4);
 
         line_down(line_1);
         line_down(line_2);
