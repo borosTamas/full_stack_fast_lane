@@ -118,7 +118,7 @@ $(function() {
             return;
         }
         if (collision(car, extra_score)) {
-            score.text(parseInt(score.text()) + 5);
+            score.text(parseInt(score.text()) + 10);
             powerup_current_top = -200;
            extra_score.css('top', powerup_current_top + speed);
         }
