@@ -22,6 +22,7 @@ $(function() {
     let restart_btn = $('#restart');
     let score = $('#score');
     let timer = $('#timer');
+    let extra_score = $('#extra_score');
 
     //saving some initial setup
     let container_left = parseInt(container.css('left'));
@@ -46,7 +47,7 @@ $(function() {
     /* ------------------------------GAME CODE STARTS HERE------------------------------------------- */
 
     /* Move the cars */
-    $(document).on('keydown', function(e) {
+    $(document).on('keydown', function (e) {
         if (game_over === false) {
             let key = e.keyCode;
             if (key === 37 && move_left === false) {
@@ -61,7 +62,7 @@ $(function() {
         }
     });
 
-    $(document).on('keyup', function(e) {
+    $(document).on('keyup', function (e) {
         if (game_over === false) {
             let key = e.keyCode;
             if (key === 37) {
@@ -116,6 +117,11 @@ $(function() {
             stop_the_game();
             return;
         }
+        if (collision(car, extra_score)) {
+            score.text(parseInt(score.text()) + 10);
+            powerup_current_top = -200;
+           extra_score.css('top', powerup_current_top + speed);
+        }
 
         score_counter++;
 
@@ -131,6 +137,7 @@ $(function() {
         car_down(car_2);
         car_down(car_3);
         car_down(car_4);
+        powerup_down(extra_score);
 
         line_down(line_1);
         line_down(line_2);
@@ -163,23 +170,40 @@ $(function() {
         }
         line.css('top', line_current_top + line_speed);
     }
-
-    restart_btn.click(function() {
-        location.reload();
-    });
-
-    function stop_the_game() {
-        game_over = true;
-        cancelAnimationFrame(anim_id);
-        cancelAnimationFrame(move_right);
-        cancelAnimationFrame(move_left);
-        cancelAnimationFrame(move_up);
-        cancelAnimationFrame(move_down);
-        restart_div.slideDown();
-        restart_btn.focus();
+    function powerup_down(powerup) {
+        var powerup_current_top = parseInt(powerup.css('top'));
+        if (powerup_current_top > container_height) {
+            powerup_current_top = -200;
+            var powerup_left = parseInt(Math.random() * (container_width - car_width));
+            powerup.css('left', powerup_left);
+        }
+        powerup.css('top', powerup_current_top + speed);
     }
 
-    /* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
+function line_down(line) {
+    var line_current_top = parseInt(line.css('top'));
+    if (line_current_top > container_height) {
+        line_current_top = -300;
+    }
+    line.css('top', line_current_top + line_speed);
+}
+
+restart_btn.click(function () {
+    location.reload();
+});
+
+function stop_the_game() {
+    game_over = true;
+    cancelAnimationFrame(anim_id);
+    cancelAnimationFrame(move_right);
+    cancelAnimationFrame(move_left);
+    cancelAnimationFrame(move_up);
+    cancelAnimationFrame(move_down);
+    restart_div.slideDown();
+    restart_btn.focus();
+}
+
+/* ------------------------------GAME CODE ENDS HERE------------------------------------------- */
 
 
     function collision($div1, $div2) {
@@ -196,9 +220,10 @@ $(function() {
         let b2 = y2 + h2;
         let r2 = x2 + w2;
 
-        if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
-        return true;
-    }
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
+
 
 
     let minutesLabel = document.getElementById("minutes");

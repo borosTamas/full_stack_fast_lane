@@ -84,6 +84,14 @@ h1{
     width: 60px;
 }
 
+.power-up{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+
+}
+
+
 #car{
     bottom: 8%;
     left: 60%;
@@ -107,6 +115,13 @@ h1{
     left: 50%;
     background-size: contain;
 }
+
+#extra_score{
+    top: -250px;
+    left: 30%;
+    background-size: contain;
+}
+
 
 #car_4{
     top: -400px;
