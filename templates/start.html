@@ -16,6 +16,10 @@
         <label for="fav_colour"> Please select a colour</label>
         <input id="fav_colour" type="color" required>
         <input type="submit" >
+        <table>
+            {% for user in top_users %}
+            <td>{{ user }}</td>
+        </table>
     </form>
 </div>
 </body>
