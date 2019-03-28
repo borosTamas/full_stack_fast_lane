@@ -12,6 +12,7 @@ def index():
         return redirect('/game')
     return render_template('start.html')
 
+
 @app.route('/game')
 def game():
     return render_template('index.html')

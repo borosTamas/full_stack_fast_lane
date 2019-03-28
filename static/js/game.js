@@ -137,6 +137,7 @@ $(function() {
         car_down(car_2);
         car_down(car_3);
         car_down(car_4);
+
         powerup_down(extra_score);
 
         line_down(line_1);
