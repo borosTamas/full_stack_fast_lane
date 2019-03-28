@@ -112,7 +112,7 @@ $(function() {
     anim_id = requestAnimationFrame(repeat);
 
     function repeat() {
-        if (collision(car, car_1) || collision(car, car_2) || collision(car, car_3)) {
+        if (collision(car, car_1) || collision(car, car_2) || collision(car, car_3) || collision(car, car_4)) {
             stop_the_game();
             return;
         }

@@ -6,6 +6,14 @@ body {
     font-family: sans-serif;
 }
 
+h1{
+    text-align: center;
+}
+
+#start{
+    text-align: center;
+}
+
 #container{
     position: relative;
     height: 90vh;
@@ -112,7 +120,7 @@ body {
     width: 100%;
     background-color: #292929;
     color: white;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 40px;
     text-align: center;
     display: none;
@@ -122,14 +130,17 @@ body {
     border: none;
     padding: 25px;
     color: white;
-    background-color: #8a64ff;
+    background-color: #141d9d;
     font-size: 30px;
     margin-top: 30%;
+    border-radius: 10px;
 }
+
 .small_text{
     font-size: 15px;
     font-family: Montserrat;
 }
+
 #score_div{
     position: absolute;
     margin-top: 20%;
