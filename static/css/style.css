@@ -12,7 +12,7 @@ body {
     width: 50%;
     left: 35%;
     margin-top: 20px;;
-    background-color: #292929;
+    background-color: rgb(89, 89, 89);
     overflow: hidden;
 }
 
@@ -21,7 +21,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 48%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 254, 41);
 }
 
 #line_1{
@@ -39,7 +39,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 19%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 255, 255);
 }
 
 #line_4{
@@ -57,7 +57,7 @@ body {
     height: 150px;
     width: 4%;
     margin-left: 78%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(255, 255, 255);
 }
 
 #line_7{
@@ -75,6 +75,14 @@ body {
     height: 100px;
     width: 60px;
 }
+
+.power-up{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+
+}
+
 
 #car{
     bottom: 8%;
@@ -100,6 +108,19 @@ body {
     background-size: contain;
 }
 
+#extra_score{
+    top: -250px;
+    left: 30%;
+    background-size: contain;
+}
+
+
+#car_4{
+    top: -400px;
+    left: 20%;
+    background-size: contain;
+}
+
 #restart_div {
     position: absolute;
     height: 100%;
@@ -122,10 +143,21 @@ body {
 }
 .small_text{
     font-size: 15px;
+    font-family: Montserrat;
 }
 #score_div{
     position: absolute;
     margin-top: 20%;
+    margin-left: 10%;
+    font-size: 35px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+    box-shadow: 4px 4px 0px 1px #808080;
+}
+#timer_div {
+    position: absolute;
+    margin-top: 25%;
     margin-left: 10%;
     font-size: 35px;
     background-color: white;
