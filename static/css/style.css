@@ -179,3 +179,12 @@ h1{
 #help{
 	text-align: center;
 }
+#header{
+    text-align: center;
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    background-color: dodgerblue;
+}
+#body{
+    text-align: center;
+    background-color: antiquewhite;
+}
